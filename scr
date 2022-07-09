@@ -1,0 +1,125 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("POOG", "BloodTheme")
+
+-- Colors
+
+-- Labels stuff
+
+local dick = Window:NewTab("AutoFarm")
+local dick2 = dick:NewSection("Main")
+
+local dicks = Window:NewTab("Teleports")
+local dicks1 = dicks:NewSection("Teleports")
+
+-- Main things auto farm etc.
+
+dick2:NewToggle("Auto click", "On/off", function(state) 
+
+    if state then
+        _G.autoclick = true
+        while _G.autoclick == true do wait ()
+    local args = {
+        [1] = {
+            ["manual"] = {
+                ["9999999999"] = 9999999999
+            }
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Clickerr:InvokeServer(unpack(args))
+     wait(1)
+     end
+
+else
+    
+    _G.autoclick = false 
+    
+    while _G.autoclick == true do wait()
+        local args = {
+            [1] = {
+                ["manual"] = {
+                    ["9999999999"] = 9999999999
+                }
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Clickerr:InvokeServer(unpack(args))
+         wait(1)
+          end
+      end 
+end)
+
+dick2:NewToggle("Auto Rebirth", "On/off", function(state) 
+
+    if state then
+        _G.autosik = true
+        while _G.autosik == true do wait ()
+                local args = {
+                    [1] = 1,
+                    [2] = false,
+                    [3] = false
+                }
+                
+                game:GetService("ReplicatedStorage").Events.Client.requestRebirth:FireServer(unpack(args))
+                wait(1)
+            end 
+            
+        else
+            _G.autosik = false 
+    
+            while _G.autosik == true do wait()
+                local args = {
+                    [1] = 1,
+                    [2] = false,
+                    [3] = false
+                }
+                
+                game:GetService("ReplicatedStorage").Events.Client.requestRebirth:FireServer(unpack(args))
+                wait(1)
+            end 
+       end
+    end)
+
+    dick2:NewToggle("Auto Egg Hatching", "On/Off", function(state)
+        if state then
+            _G.autoegg = true
+            while _G.autoegg == true do wait ()
+                  
+                local args = {
+                  [1] = workspace.Eggs.Basic,
+                  [2] = false,
+                  [3] = false
+                }
+
+                 game:GetService("ReplicatedStorage").Events.Client.purchaseEgg2:InvokeServer(unpack(args))
+                wait(0.5)
+            end
+        else
+            _G.autoegg = false 
+    
+            while _G.autoegg == true do wait()
+               
+                local args = {
+                    [1] = workspace.Eggs.Basic,
+                    [2] = false,
+                    [3] = false
+                  }
+  
+                   game:GetService("ReplicatedStorage").Events.Client.purchaseEgg2:InvokeServer(unpack(args))
+                  wait(0.5)
+              end
+    
+      end
+end)
+
+-- Teleports
+
+dicks1:NewButton("Teleport to Sky", "Teleporting to Sky Island", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/W3BagPTC"))()
+        
+end)
+
+dicks1:NewButton("Teleport to Atlantis", "Teleporting to Atlantis Island", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/sZgrsMpF"))()
+        
+end)
